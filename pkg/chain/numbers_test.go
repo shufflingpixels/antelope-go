@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/greymass/go-eosio/internal/assert"
-	"github.com/greymass/go-eosio/pkg/chain"
+	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/pnx/antelope-go/pkg/chain"
 )
 
 func TestUint128(t *testing.T) {

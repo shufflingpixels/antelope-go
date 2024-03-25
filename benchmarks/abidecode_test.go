@@ -6,8 +6,8 @@ import (
 
 	json "encoding/json"
 
-	"github.com/greymass/go-eosio/internal/assert"
-	"github.com/greymass/go-eosio/pkg/chain"
+	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/pnx/antelope-go/pkg/chain"
 
 	eoscanada "github.com/eoscanada/eos-go"
 )

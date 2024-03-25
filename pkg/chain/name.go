@@ -1,6 +1,6 @@
 package chain
 
-import "github.com/greymass/go-eosio/pkg/abi"
+import "github.com/pnx/antelope-go/pkg/abi"
 
 // Type representing an EOSIO name.
 type Name uint64

@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/greymass/go-eosio/pkg/abi"
-	"github.com/greymass/go-eosio/pkg/base58"
+	"github.com/pnx/antelope-go/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/base58"
 )
 
 type Signature struct {
@@ -41,7 +41,6 @@ func NewSignatureString(s string) (*Signature, error) {
 		Type: t,
 		Data: d,
 	}, err
-
 }
 
 func (pk *Signature) String() string {

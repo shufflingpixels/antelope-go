@@ -1,7 +1,7 @@
 package benchmarks
 
 import (
-	"github.com/greymass/go-eosio/pkg/chain"
+	"github.com/pnx/antelope-go/pkg/chain"
 
 	eoscanada "github.com/eoscanada/eos-go"
 )

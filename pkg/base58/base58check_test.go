@@ -3,8 +3,8 @@ package base58_test
 import (
 	"testing"
 
-	"github.com/greymass/go-eosio/internal/assert"
-	"github.com/greymass/go-eosio/pkg/base58"
+	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/pnx/antelope-go/pkg/base58"
 )
 
 func TestDecodeCheck(t *testing.T) {

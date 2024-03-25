@@ -5,8 +5,8 @@ import (
 	"crypto/sha512"
 	"encoding/hex"
 
-	"github.com/greymass/go-eosio/pkg/abi"
-	"github.com/greymass/go-eosio/pkg/ripemd160"
+	"github.com/pnx/antelope-go/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/ripemd160"
 )
 
 // ripemd160 checksum type

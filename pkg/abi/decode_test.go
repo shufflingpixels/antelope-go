@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/greymass/go-eosio/internal/assert"
-	"github.com/greymass/go-eosio/pkg/abi"
+	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/pnx/antelope-go/pkg/abi"
 )
 
 func testDecoder(data []byte) *abi.Decoder {
@@ -232,7 +232,6 @@ func TestVariantPtr(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, *v.B, "hello world")
 	assert.True(t, (*v).A == nil)
-
 }
 
 // bytes

@@ -3,7 +3,7 @@ package chain
 import (
 	"encoding/base64"
 
-	"github.com/greymass/go-eosio/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/abi"
 )
 
 // Exactly like Bytes but serializes as Base64 instead of Base16 (hex) when encoded as JSON

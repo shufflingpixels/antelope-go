@@ -3,7 +3,7 @@ package chain
 import (
 	"encoding/hex"
 
-	"github.com/greymass/go-eosio/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/abi"
 )
 
 // Binary data type, encodes to hex string in JSON.

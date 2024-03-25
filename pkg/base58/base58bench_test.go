@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/greymass/go-eosio/pkg/base58"
+	"github.com/pnx/antelope-go/pkg/base58"
 )
 
 var (

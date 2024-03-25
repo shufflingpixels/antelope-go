@@ -11,7 +11,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/greymass/go-eosio/pkg/chain"
+	"github.com/pnx/antelope-go/pkg/chain"
 )
 
 func Fail(t *testing.T, message string) {

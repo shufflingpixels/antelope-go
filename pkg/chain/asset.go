@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/greymass/go-eosio/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/abi"
 )
 
 var ErrInvalidAssetString = errors.New("invalid asset string")
@@ -34,7 +34,7 @@ func NewAssetFromString(s string) (*Asset, error) {
 	}
 	var foundPoint bool = false
 	var precision uint8 = 0
-	var builder = strings.Builder{}
+	builder := strings.Builder{}
 	for i, c := range p[0] {
 		if c == '.' {
 			if foundPoint {

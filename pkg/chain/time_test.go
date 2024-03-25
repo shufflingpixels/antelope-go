@@ -3,8 +3,8 @@ package chain_test
 import (
 	"testing"
 
-	"github.com/greymass/go-eosio/internal/assert"
-	"github.com/greymass/go-eosio/pkg/chain"
+	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/pnx/antelope-go/pkg/chain"
 )
 
 func TestTime(t *testing.T) {

@@ -3,7 +3,7 @@ package chain
 import (
 	"time"
 
-	"github.com/greymass/go-eosio/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/abi"
 )
 
 type TimePoint int64

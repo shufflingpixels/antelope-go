@@ -3,8 +3,8 @@ package benchmarks
 import (
 	"encoding/json"
 
-	"github.com/greymass/go-eosio/pkg/abi"
-	"github.com/greymass/go-eosio/pkg/chain"
+	"github.com/pnx/antelope-go/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/chain"
 )
 
 func loadAbi(v string) *chain.Abi {

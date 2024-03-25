@@ -3,7 +3,7 @@ package chain
 import (
 	"io"
 
-	"github.com/greymass/go-eosio/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/abi"
 )
 
 // this is dumb but speeds up encoding and decoding by about 5x

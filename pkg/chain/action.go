@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"errors"
 
-	"github.com/greymass/go-eosio/pkg/abi"
+	"github.com/pnx/antelope-go/pkg/abi"
 )
 
 type PermissionLevel struct {
