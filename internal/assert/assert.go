@@ -11,7 +11,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/pnx/antelope-go/pkg/chain"
+	"github.com/pnx/antelope-go/chain"
 )
 
 func Fail(t *testing.T, message string) {
