@@ -1,7 +1,7 @@
 package benchmarks
 
 import (
-	"github.com/pnx/antelope-go/pkg/chain"
+	"github.com/pnx/antelope-go/chain"
 
 	eoscanada "github.com/eoscanada/eos-go"
 )
