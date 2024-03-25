@@ -9,7 +9,7 @@ jobs:
   test:
     strategy:
       matrix:
-        go-version: [1.18.x]
+        go-version: [1.18.x, 1.19.x, 1.20.x, 1.21.x]
     runs-on: ubuntu-latest
     name: Go ${{ matrix.go-version }}
     steps:
@@ -27,9 +27,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
       - name: Run tests
-        run: go test -coverprofile=/tmp/coverage ./pkg/...
+        run: go test -coverprofile=/tmp/coverage ./...
       - name: Run benchmarks
-        run: go test -benchmem -bench=. ./pkg/...
+        run: go test -benchmem -bench=. ./...
       - name: Upload coverage
         uses: actions/upload-artifact@v2
         with:
