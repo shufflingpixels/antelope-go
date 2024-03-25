@@ -27,6 +27,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
       - name: 'Fuzz: Name'
-        run: go test ./pkg/chain/name_test.go -fuzz=Fuzz -fuzztime=30s
+        run: go test ./chain/name_test.go -fuzz=Fuzz -fuzztime=30s
       - name: 'Fuzz: Asset'
-        run: go test ./pkg/chain/asset_test.go -fuzz=Fuzz -fuzztime=30s
+        run: go test ./chain/asset_test.go -fuzz=Fuzz -fuzztime=30s
