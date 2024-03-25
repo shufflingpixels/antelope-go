@@ -31,6 +31,7 @@ Benchmark_Encode_EosCanada-12           	 116320	     9305 ns/op	   1744 B/op	  
 License
 -------
 
+```
 Copyright (C) 2024  Henrik Hautakoski <henrik.hautakoski@gmail.com>
 Copyright (C) 2021  Greymass Inc.
 
@@ -46,3 +47,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+```
