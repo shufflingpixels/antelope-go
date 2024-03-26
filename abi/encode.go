@@ -11,6 +11,10 @@ import (
 // Fast-path decoding function can be implemented to handle additional types without reflection.
 type EncodeFunc func(enc *Encoder, v interface{}) (done bool, err error)
 
+func DefaultEncoderFunc(enc *Encoder, v interface{}) (done bool, err error) {
+	return false, nil
+}
+
 type Encoder struct {
 	w  io.Writer
 	fn EncodeFunc
@@ -165,6 +169,7 @@ func (enc *Encoder) WriteByte(b byte) error {
 	_, err := enc.w.Write([]byte{b})
 	return err
 }
+
 func (enc *Encoder) WriteBool(v bool) error {
 	if v {
 		return enc.WriteByte(1)

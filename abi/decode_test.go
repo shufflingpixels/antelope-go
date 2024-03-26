@@ -9,9 +9,7 @@ import (
 )
 
 func testDecoder(data []byte) *abi.Decoder {
-	return abi.NewDecoder(bytes.NewReader(data), func(dec *abi.Decoder, v interface{}) (done bool, err error) {
-		return false, nil
-	})
+	return abi.NewDecoder(bytes.NewReader(data), abi.DefaultDecoderFunc)
 }
 
 func unmarshal(data []byte, v interface{}) error {
@@ -397,7 +395,7 @@ func TestReuse(t *testing.T) {
 	}
 
 	v1b := bytes.NewBuffer(nil)
-	err := abi.NewEncoder(v1b, noopEncodefunc).Encode(v1)
+	err := abi.NewEncoder(v1b, abi.DefaultEncoderFunc).Encode(v1)
 	assert.NoError(t, err)
 
 	str2 := "goodbye"
@@ -418,7 +416,7 @@ func TestReuse(t *testing.T) {
 	}
 
 	v2b := bytes.NewBuffer(nil)
-	err = abi.NewEncoder(v2b, noopEncodefunc).Encode(v2)
+	err = abi.NewEncoder(v2b, abi.DefaultEncoderFunc).Encode(v2)
 	assert.NoError(t, err)
 
 	var vr tst

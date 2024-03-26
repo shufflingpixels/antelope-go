@@ -8,14 +8,10 @@ import (
 	"github.com/pnx/antelope-go/internal/assert"
 )
 
-func noopEncodefunc(enc *abi.Encoder, v interface{}) (done bool, err error) {
-	return false, nil
-}
-
 func TestEncodeUint64(t *testing.T) {
 	var v uint64 = 42
 	var b *bytes.Buffer = bytes.NewBuffer(nil)
-	err := abi.NewEncoder(b, noopEncodefunc).Encode(v)
+	err := abi.NewEncoder(b, abi.DefaultEncoderFunc).Encode(v)
 	assert.NoError(t, err)
 	assert.Equal(t, b.Bytes(), []byte{0x2a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00})
 }
@@ -29,7 +25,7 @@ func TestEncodeStruct(t *testing.T) {
 	x := uint64(42)
 	v := TestStruct{42, nil, &x}
 	var b *bytes.Buffer = bytes.NewBuffer(nil)
-	err := abi.NewEncoder(b, noopEncodefunc).Encode(v)
+	err := abi.NewEncoder(b, abi.DefaultEncoderFunc).Encode(v)
 	assert.NoError(t, err)
 	assert.Equal(t, b.Bytes(), []byte{
 		0x2a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -41,7 +37,7 @@ func TestEncodeStruct(t *testing.T) {
 func TestEncodeVector(t *testing.T) {
 	v := []uint64{42, 43, 0}
 	var b *bytes.Buffer = bytes.NewBuffer(nil)
-	err := abi.NewEncoder(b, noopEncodefunc).Encode(v)
+	err := abi.NewEncoder(b, abi.DefaultEncoderFunc).Encode(v)
 	assert.NoError(t, err)
 	assert.Equal(t, b.Bytes(), []byte{
 		0x03,
@@ -54,7 +50,7 @@ func TestEncodeVector(t *testing.T) {
 func TestEncodeArray(t *testing.T) {
 	v := [3]uint64{42, 43, 0}
 	var b *bytes.Buffer = bytes.NewBuffer(nil)
-	err := abi.NewEncoder(b, noopEncodefunc).Encode(v)
+	err := abi.NewEncoder(b, abi.DefaultEncoderFunc).Encode(v)
 	assert.NoError(t, err)
 	assert.Equal(t, b.Bytes(), []byte{
 		0x2a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,

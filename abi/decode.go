@@ -12,6 +12,10 @@ import (
 // Fast-path decoding function can be implemented to handle additional types without reflection.
 type DecodeFunc func(dec *Decoder, v interface{}) (done bool, err error)
 
+func DefaultDecoderFunc(dec *Decoder, v interface{}) (done bool, err error) {
+	return false, nil
+}
+
 type Decoder struct {
 	r  io.Reader
 	fn DecodeFunc
