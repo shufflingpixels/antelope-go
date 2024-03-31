@@ -43,6 +43,14 @@ func NewSignatureString(s string) (*Signature, error) {
 	}, err
 }
 
+func MustNewSignatureString(s string) Signature {
+	sig, err := NewSignatureString(s)
+	if err != nil {
+		panic(err)
+	}
+	return *sig
+}
+
 func (pk *Signature) String() string {
 	return "SIG_" + pk.Type.String() + "_" + base58.CheckEncodeEosio(pk.Data, pk.Type.String())
 }
