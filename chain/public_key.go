@@ -52,6 +52,14 @@ func NewPublicKeyFromString(s string) (*PublicKey, error) {
 	}, err
 }
 
+func MustNewPublicKeyFromString(s string) PublicKey {
+	pk, err := NewPublicKeyFromString(s)
+	if err != nil {
+		panic(err)
+	}
+	return *pk
+}
+
 func (pk *PublicKey) String() string {
 	return "PUB_" + pk.Type.String() + "_" + base58.CheckEncodeEosio(pk.Data, pk.Type.String())
 }
