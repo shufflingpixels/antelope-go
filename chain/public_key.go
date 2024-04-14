@@ -45,7 +45,7 @@ func NewPublicKeyFromString(s string) (*PublicKey, error) {
 		}, err
 	}
 	// legacy format
-	d, err := base58.CheckDecode(s[len(s)-50:])
+	d, err := base58.CheckDecodeEosio(s[len(s)-50:], "")
 	return &PublicKey{
 		Type: K1,
 		Data: d,
@@ -61,7 +61,7 @@ func (pk *PublicKey) LegacyString(prefix string) string {
 	if pk.Type != K1 {
 		panic("only K1 keys can be converted to legacy format")
 	}
-	return prefix + base58.CheckEncode(pk.Data)
+	return prefix + base58.CheckEncodeEosio(pk.Data, "")
 }
 
 // abi.Marshaler conformance
