@@ -23,6 +23,12 @@ type Transaction struct {
 	Extensions         []TransactionExtension `json:"transaction_extensions"`
 }
 
+type TransactionReceiptHeader struct {
+	Status               TransactionStatus `json:"status"`
+	CPUUsageMicroSeconds uint32            `json:"cpu_usage_us"`
+	NetUsageWords        uint              `json:"net_usage_words"`
+}
+
 // abi.Marshaler conformance
 
 func (txh TransactionHeader) MarshalABI(e *abi.Encoder) error {
