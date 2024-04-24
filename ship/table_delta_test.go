@@ -73,3 +73,29 @@ func TestTableDeltaDecode(t *testing.T) {
 
 	assert.Equal(t, actual, expected)
 }
+
+func TestTableDeltaArrayUnpack(t *testing.T) {
+	delta := ship.TableDelta{
+		V0: &ship.TableDeltaV0{
+			Name: "unpack_me",
+			Rows: []ship.Row{
+				{
+					Present: true,
+					Data:    []byte{0x01, 0x02, 0x03},
+				},
+				{
+					Present: false,
+					Data:    []byte{0x04, 0x05, 0x06},
+				},
+			},
+		},
+	}
+
+	actual := []ship.TableDelta{}
+	expected := []ship.TableDelta{delta}
+	arr := ship.MustMakeTableDeltaArray(expected)
+
+	err := arr.Unpack(actual)
+	assert.NoError(t, err)
+	assert.Equal(t, actual, expected)
+}
