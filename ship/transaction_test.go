@@ -109,3 +109,13 @@ func TestTransactionTraceDecode(t *testing.T) {
 
 	assert.Equal(t, actual, trace)
 }
+
+func TestTransactionTraceArrayUnpack(t *testing.T) {
+	actual := []ship.TransactionTrace{}
+	expected := []ship.TransactionTrace{trace}
+	arr := ship.MustMakeTransactionTraceArray(expected)
+
+	err := arr.Unpack(actual)
+	assert.NoError(t, err)
+	assert.Equal(t, actual, expected)
+}
