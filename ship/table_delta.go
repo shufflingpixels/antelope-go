@@ -23,7 +23,7 @@ type TableDelta struct {
 
 type TableDeltaArray []byte
 
-func (a *TableDeltaArray) Unpack(deltas []TableDelta) error {
+func (a *TableDeltaArray) Unpack(deltas *[]TableDelta) error {
 	return abi.NewDecoder(bytes.NewReader(*a), abi.DefaultDecoderFunc).Decode(deltas)
 }
 

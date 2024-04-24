@@ -95,7 +95,7 @@ func TestTableDeltaArrayUnpack(t *testing.T) {
 	expected := []ship.TableDelta{delta}
 	arr := ship.MustMakeTableDeltaArray(expected)
 
-	err := arr.Unpack(actual)
+	err := arr.Unpack(&actual)
 	assert.NoError(t, err)
 	assert.Equal(t, actual, expected)
 }
