@@ -11,11 +11,11 @@ import (
 // EOSIO ABI definition, describes the binary representation of a collection of types.
 type Abi struct {
 	Version          string            `json:"version"`
-	Types            []AbiType         `json:"types"`
-	Structs          []AbiStruct       `json:"structs"`
-	Actions          []AbiAction       `json:"actions"`
-	Tables           []AbiTable        `json:"tables"`
-	RicardianClauses []AbiClause       `json:"ricardian_clauses"`
+	Types            []AbiType         `json:"types,omitempty"`
+	Structs          []AbiStruct       `json:"structs,omitempty"`
+	Actions          []AbiAction       `json:"actions,omitempty"`
+	Tables           []AbiTable        `json:"tables,omitempty"`
+	RicardianClauses []AbiClause       `json:"ricardian_clauses,omitempty"`
 	ErrorMessages    []AbiErrorMessage `json:"error_messages,omitempty"`
 	Extensions       []*AbiExtension   `json:"abi_extensions,omitempty"`
 	Variants         []AbiVariant      `json:"variants,omitempty" eosio:"extension"`
