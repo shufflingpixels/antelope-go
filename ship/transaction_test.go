@@ -115,7 +115,7 @@ func TestTransactionTraceArrayUnpack(t *testing.T) {
 	expected := []ship.TransactionTrace{trace}
 	arr := ship.MustMakeTransactionTraceArray(expected)
 
-	err := arr.Unpack(actual)
+	err := arr.Unpack(&actual)
 	assert.NoError(t, err)
 	assert.Equal(t, actual, expected)
 }

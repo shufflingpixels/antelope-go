@@ -56,7 +56,6 @@ type PartialTransaction struct {
 	V0 *PartialTransactionV0
 }
 
-
 func MakeTransactionTraceArray(data []TransactionTrace, arr *TransactionTraceArray) error {
 	b := new(bytes.Buffer)
 	if err := abi.NewEncoder(b, abi.DefaultEncoderFunc).Encode(data); err != nil {
@@ -74,7 +73,7 @@ func MustMakeTransactionTraceArray(data []TransactionTrace) *TransactionTraceArr
 	return &arr
 }
 
-func (a *TransactionTraceArray) Unpack(traces []TransactionTrace) error {
+func (a *TransactionTraceArray) Unpack(traces *[]TransactionTrace) error {
 	return abi.NewDecoder(bytes.NewReader(*a), abi.DefaultDecoderFunc).Decode(traces)
 }
 
