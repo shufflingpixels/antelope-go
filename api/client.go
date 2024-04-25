@@ -45,7 +45,7 @@ func (c *Client) send(ctx context.Context, method string, path string, body inte
 		Send(method, c.Url+path)
 
 	if err == nil {
-		if !r.IsErrorState() {
+		if !r.IsError() {
 			err = r.UnmarshalJson(&out)
 		} else {
 			var api_err APIError
