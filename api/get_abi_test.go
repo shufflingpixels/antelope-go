@@ -2,7 +2,6 @@ package api
 
 import (
 	"context"
-	"fmt"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -15,15 +14,21 @@ import (
 
 func TestGetAbi(t *testing.T) {
 	testServer := httptest.NewServer(http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
-		if req.URL.String() == "/v1/chain/get_abi" {
-			fmt.Println(req.URL.String())
+		require.Equal(t, req.Method, "POST")
+		require.Equal(t, req.URL.String(), "/v1/chain/get_abi")
+		body := struct {
+			AccountName string `json:"account_name"`
+		}{}
+		err := json.NewDecoder(req.Body).Decode(&body)
+		require.NoError(t, err)
 
-			file, err := os.Open("../testdata/api/chain_get_abi.json")
-			require.NoError(t, err)
-			defer file.Close()
-			_, err = io.Copy(res, file)
-			require.NoError(t, err)
-		}
+		require.Equal(t, body.AccountName, "eosio.token")
+
+		file, err := os.Open("../testdata/api/chain_get_abi.json")
+		require.NoError(t, err)
+		defer file.Close()
+		_, err = io.Copy(res, file)
+		require.NoError(t, err)
 	}))
 
 	client := New(testServer.URL)
