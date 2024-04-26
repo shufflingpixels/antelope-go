@@ -16,9 +16,9 @@ type AbiResp struct {
 // ---------------------------------------------------------
 func (c *Client) GetAbi(ctx context.Context, account string) (abi AbiResp, err error) {
 	body := map[string]string{
-		"account": account,
+		"account_name": account,
 	}
 
-	err = c.send(ctx, "GET", "/v1/chain/get_abi", body, &abi)
+	err = c.send(ctx, "POST", "/v1/chain/get_abi", body, &abi)
 	return
 }
