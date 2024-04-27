@@ -27,6 +27,24 @@ Benchmark_Encode_NoOptimize-12          	 256351	     4449 ns/op	   1056 B/op	  
 Benchmark_Encode_EosCanada-12           	 116320	     9305 ns/op	   1744 B/op	    135 allocs/op
 ```
 
+```
+go version: 1.17.13
+goos: linux
+goarch: amd64
+pkg: github.com/pnx/antelope-go/internal/benchmarks
+cpu: AMD EPYC 7763 64-Core Processor
+Benchmark_Decode_AbiDef-4             	  470780	      2262 ns/op	    1760 B/op	      52 allocs/op
+Benchmark_Decode_AbiDef_EosCanada-4   	  342249	      3635 ns/op	    1840 B/op	      43 allocs/op
+Benchmark_Encode_AbiDef-4             	  643518	      1809 ns/op	    1240 B/op	      39 allocs/op
+Benchmark_Encode_AbiDef_EosCanada-4   	  239196	      5057 ns/op	    2048 B/op	      66 allocs/op
+Benchmark_Decode-4                    	  816806	      1481 ns/op	    1016 B/op	      52 allocs/op
+Benchmark_Decode_NoOptimize-4         	  202341	      5934 ns/op	    1352 B/op	      92 allocs/op
+Benchmark_Decode_EosCanada-4          	  121315	      9902 ns/op	    2376 B/op	      95 allocs/op
+Benchmark_Encode-4                    	 1545202	       694.9 ns/op	     392 B/op	      39 allocs/op
+Benchmark_Encode_NoOptimize-4         	  320676	      3768 ns/op	    1056 B/op	      88 allocs/op
+Benchmark_Encode_EosCanada-4          	  166828	      7241 ns/op	    1744 B/op	     135 allocs/op
+```
+
 [All benchmark runs](https://github.com/pnx/antelope-go/actions/workflows/benchmark.yml)
 
 
