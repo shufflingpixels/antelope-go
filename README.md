@@ -3,6 +3,8 @@ antelope-go
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/pnx/antelope-go)](https://goreportcard.com/report/github.com/pnx/antelope-go)
 
+[![Test](https://github.com/pnx/antelope-go/actions/workflows/test.yml/badge.svg?branch=master&event=push)](https://github.com/pnx/antelope-go/actions/workflows/test.yml)
+
 Library for interacting with antelope
 
 Benchmarks
