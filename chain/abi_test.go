@@ -178,6 +178,11 @@ var tokenAbi = loadAbi(`
             "name": "transfer",
             "type": "transfer",
             "ricardian_contract": ""
+        },
+        {
+            "name": "bigtransfer",
+            "type": "megatransfer",
+            "ricardian_contract": ""
         }
     ],
     "tables": [
@@ -248,4 +253,45 @@ func TestAbiEncode(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.Equal(t, buf.Bytes(), transferData)
+}
+
+func TestAbiEncodeAction(t *testing.T) {
+	buf := bytes.NewBuffer(nil)
+	err := tokenAbi.EncodeAction(buf, chain.N("bigtransfer"), map[string]interface{}{
+		"from":     chain.N("foo"),
+		"to":       chain.N("bar"),
+		"quantity": *chain.A("1.0000 EOS"),
+		"memo":     "hello",
+		"extra":    []interface{}{"string", "foo"},
+		"extra2": []interface{}{
+			map[string]interface{}{"moo": chain.N("teamgreymass")},
+		},
+	})
+	assert.NoError(t, err)
+	assert.Equal(t, buf.Bytes(), transferData)
+}
+
+func TestAbiDecodeAction(t *testing.T) {
+	rv, err := tokenAbi.DecodeAction(bytes.NewReader(transferData), chain.N("bigtransfer"))
+	assert.NoError(t, err)
+	assert.Equal(t, rv, map[string]interface{}{
+		"from":     chain.N("foo"),
+		"to":       chain.N("bar"),
+		"quantity": *chain.A("1.0000 EOS"),
+		"memo":     "hello",
+		"extra":    []interface{}{"string", "foo"},
+		"extra2": []interface{}{
+			map[string]interface{}{"moo": chain.N("teamgreymass")},
+		},
+	})
+}
+
+func TestAbiGetActionFound(t *testing.T) {
+	act := tokenAbi.GetAction(chain.N("create"))
+	assert.True(t, act != nil)
+}
+
+func TestAbiGetActionNotFound(t *testing.T) {
+	act := tokenAbi.GetAction(chain.N("not_found"))
+	assert.True(t, act == nil)
 }
