@@ -19,9 +19,9 @@ type GetStatusResultV0 struct {
 type GetBlocksResultV0 struct {
 	Head             BlockPosition
 	LastIrreversible BlockPosition
-	ThisBlock        *BlockPosition        `eosio:"optional"`
-	PrevBlock        *BlockPosition        `eosio:"optional"`
-	Block            *SignedBlockBytes     `eosio:"optional"`
+	ThisBlock        *BlockPosition         `eosio:"optional"`
+	PrevBlock        *BlockPosition         `eosio:"optional"`
+	Block            *SignedBlockBytes      `eosio:"optional"`
 	Traces           *TransactionTraceArray `eosio:"optional"`
 	Deltas           *TableDeltaArray       `eosio:"optional"`
 }

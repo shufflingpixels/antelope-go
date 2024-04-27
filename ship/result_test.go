@@ -509,7 +509,7 @@ var blockResult = ship.Result{
 								AccountRamDeltas: nil,
 								Except:           "except5",
 								ErrorCode:        0xf3,
-								ReturnValue:      []byte{0xbe,0xef},
+								ReturnValue:      []byte{0xbe, 0xef},
 							},
 						},
 					},
