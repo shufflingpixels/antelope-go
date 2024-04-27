@@ -668,15 +668,17 @@ func (rt *resolvedType) allFields() []*struct {
 	if rt.fields == nil {
 		return nil
 	}
-	var rv []*struct {
+	rv := []*struct {
 		name string
 		typ  *resolvedType
-	}
+	}{}
+
 	var seen map[string]bool = make(map[string]bool)
 	var cur *resolvedType = rt
 	for {
-		if cur.fields == nil {
-			return nil // invalid struct
+		// emtpy structs are not an error
+		if cur.fields == nil || len(*cur.fields) < 1 {
+			break
 		}
 		if seen[cur.name] {
 			return nil // circular reference

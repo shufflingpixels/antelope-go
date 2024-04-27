@@ -146,6 +146,11 @@ var tokenAbi = loadAbi(`
                     "type": "string"
                 }
             ]
+        },
+		{
+            "name": "noop",
+            "base": "",
+            "fields": []
         }
     ],
     "actions": [
@@ -182,6 +187,11 @@ var tokenAbi = loadAbi(`
         {
             "name": "bigtransfer",
             "type": "megatransfer",
+            "ricardian_contract": ""
+        },
+		{
+            "name": "noop",
+            "type": "noop",
             "ricardian_contract": ""
         }
     ],
@@ -294,4 +304,9 @@ func TestAbiGetActionFound(t *testing.T) {
 func TestAbiGetActionNotFound(t *testing.T) {
 	act := tokenAbi.GetAction(chain.N("not_found"))
 	assert.True(t, act == nil)
+}
+
+func TestAbiDecodeActionEmptyStruct(t *testing.T) {
+	_, err := tokenAbi.DecodeAction(bytes.NewBuffer([]byte{}), chain.N("noop"))
+	assert.NoError(t, err)
 }
