@@ -221,7 +221,7 @@ var transferData = []byte{
 	0x03, 0x66, 0x6f, 0x6f,
 	// extra2 array
 	0x01,                                           // 1 item
-	0x80, 0xb1, 0x91, 0x5e, 0x5d, 0x26, 0x8d, 0xca, // name teamgreymass
+	0x00, 0x00, 0x00, 0x00, 0x00, 0xea, 0x30, 0x55, // name eosio
 }
 
 func TestAbiDecode(t *testing.T) {
@@ -234,7 +234,7 @@ func TestAbiDecode(t *testing.T) {
 		"memo":     "hello",
 		"extra":    []interface{}{"string", "foo"},
 		"extra2": []interface{}{
-			map[string]interface{}{"moo": chain.N("teamgreymass")},
+			map[string]interface{}{"moo": chain.N("eosio")},
 		},
 	})
 }
@@ -248,7 +248,7 @@ func TestAbiEncode(t *testing.T) {
 		"memo":     "hello",
 		"extra":    []interface{}{"string", "foo"},
 		"extra2": []interface{}{
-			map[string]interface{}{"moo": chain.N("teamgreymass")},
+			map[string]interface{}{"moo": chain.N("eosio")},
 		},
 	})
 	assert.NoError(t, err)
@@ -264,7 +264,7 @@ func TestAbiEncodeAction(t *testing.T) {
 		"memo":     "hello",
 		"extra":    []interface{}{"string", "foo"},
 		"extra2": []interface{}{
-			map[string]interface{}{"moo": chain.N("teamgreymass")},
+			map[string]interface{}{"moo": chain.N("eosio")},
 		},
 	})
 	assert.NoError(t, err)
@@ -281,7 +281,7 @@ func TestAbiDecodeAction(t *testing.T) {
 		"memo":     "hello",
 		"extra":    []interface{}{"string", "foo"},
 		"extra2": []interface{}{
-			map[string]interface{}{"moo": chain.N("teamgreymass")},
+			map[string]interface{}{"moo": chain.N("eosio")},
 		},
 	})
 }
