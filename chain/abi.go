@@ -587,17 +587,17 @@ func (r *resolver) resolve(name string) *resolvedType {
 	}
 	var isOptional bool
 	baseName := name
-	if name[len(name)-1] == '?' {
+	if len(name) > 0 && name[len(name)-1] == '?' {
 		isOptional = true
 		baseName = name[:len(name)-1]
 	}
 	var isExtension bool
-	if baseName[len(baseName)-1] == '$' {
+	if len(baseName) > 0 && baseName[len(baseName)-1] == '$' {
 		isExtension = true
 		baseName = baseName[:len(baseName)-1]
 	}
 	var isArray bool
-	if baseName[len(baseName)-2] == '[' && baseName[len(baseName)-1] == ']' {
+	if len(baseName) > 1 && baseName[len(baseName)-2] == '[' && baseName[len(baseName)-1] == ']' {
 		isArray = true
 		baseName = baseName[:len(baseName)-2]
 	}
