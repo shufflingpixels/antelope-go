@@ -1,8 +1,9 @@
 antelope-go
-========
+===========
 
-Fast Antelope primitives for Go.
+[![Go Report Card](https://goreportcard.com/badge/github.com/pnx/antelope-go)](https://goreportcard.com/report/github.com/pnx/antelope-go)
 
+Library for interacting with antelope
 
 Benchmarks
 ----------
