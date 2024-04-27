@@ -43,21 +43,24 @@ func (c *Client) send(ctx context.Context, method string, path string, body inte
 		SetHeader("Host", host).
 		SetBody(body).
 		Send(method, c.Url+path)
-
-	if err == nil {
-		if !r.IsError() {
-			err = r.UnmarshalJson(&out)
-		} else {
-			var api_err APIError
-			// Parse error object.
-			err = r.UnmarshalJson(&api_err)
-			if err != nil || api_err.IsEmpty() {
-				// Failed to parse error object. just return an generic HTTP error
-				return HTTPError{Code: r.StatusCode}
-			}
-			err = api_err
-		}
+	if err != nil {
+		return err
 	}
 
-	return err
+	if !r.IsError() {
+		return r.UnmarshalJson(&out)
+	}
+
+	return handleError(r)
+}
+
+func handleError(r *req.Response) error {
+	var api_err APIError
+	// Parse error object.
+	err := r.UnmarshalJson(&api_err)
+	if err != nil || api_err.IsEmpty() {
+		// Failed to parse error object. just return an generic HTTP error
+		return HTTPError{Code: r.StatusCode}
+	}
+	return api_err
 }
