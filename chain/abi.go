@@ -676,7 +676,7 @@ func (rt *resolvedType) allFields() []*struct {
 	var seen map[string]bool = make(map[string]bool)
 	var cur *resolvedType = rt
 	for {
-		// emtpy structs are not an error
+		// empty structs are not an error
 		if cur.fields == nil || len(*cur.fields) < 1 {
 			break
 		}

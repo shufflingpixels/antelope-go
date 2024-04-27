@@ -19,7 +19,7 @@ func TestHTTPError_Error(t *testing.T) {
 	}{
 		{name: "with message", fields: fields{Code: 200, Message: "OK"}, want: "server returned HTTP 200 OK"},
 		{name: "without message", fields: fields{Code: 404}, want: "server returned HTTP 404 Not Found"},
-		{name: "Unkown code", fields: fields{Code: 999}, want: "server returned HTTP 999"},
+		{name: "Unknown code", fields: fields{Code: 999}, want: "server returned HTTP 999"},
 	}
 
 	for _, tt := range tests {
