@@ -13,6 +13,23 @@ const (
 	TransactionStatusUnknown  = TransactionStatus(255)
 )
 
+func (txs TransactionStatus) String() string {
+	switch txs {
+	case TransactionStatusExecuted:
+		return "executed"
+	case TransactionStatusSoftFail:
+		return "soft_fail"
+	case TransactionStatusHardFail:
+		return "hard_fail"
+	case TransactionStatusDelayed:
+		return "delayed"
+	case TransactionStatusExpired:
+		return "expired"
+	default:
+		return "unknown"
+	}
+}
+
 // abi.Marshaler conformance
 
 func (txs TransactionStatus) MarshalABI(e *abi.Encoder) error {
