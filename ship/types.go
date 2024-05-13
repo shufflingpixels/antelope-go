@@ -4,7 +4,7 @@ import (
 	"github.com/pnx/antelope-go/chain"
 )
 
-// Miscaellaneous structs that don't fit anywhere else.
+// Miscellaneous structs that don't fit anywhere else.
 
 type AccountDelta struct {
 	Account chain.Name `json:"account"`
