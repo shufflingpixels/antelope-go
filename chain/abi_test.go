@@ -267,7 +267,7 @@ func TestAbiEncode(t *testing.T) {
 
 func TestAbiEncodeAction(t *testing.T) {
 	buf := bytes.NewBuffer(nil)
-	err := tokenAbi.EncodeAction(buf, chain.N("bigtransfer"), map[string]interface{}{
+	err := tokenAbi.EncodeAction(buf, "bigtransfer", map[string]interface{}{
 		"from":     chain.N("foo"),
 		"to":       chain.N("bar"),
 		"quantity": *chain.A("1.0000 EOS"),
@@ -282,7 +282,7 @@ func TestAbiEncodeAction(t *testing.T) {
 }
 
 func TestAbiDecodeAction(t *testing.T) {
-	rv, err := tokenAbi.DecodeAction(bytes.NewReader(transferData), chain.N("bigtransfer"))
+	rv, err := tokenAbi.DecodeAction(bytes.NewReader(transferData), "bigtransfer")
 	assert.NoError(t, err)
 	assert.Equal(t, rv, map[string]interface{}{
 		"from":     chain.N("foo"),
@@ -297,16 +297,16 @@ func TestAbiDecodeAction(t *testing.T) {
 }
 
 func TestAbiGetActionFound(t *testing.T) {
-	act := tokenAbi.GetAction(chain.N("create"))
+	act := tokenAbi.GetAction("create")
 	assert.True(t, act != nil)
 }
 
 func TestAbiGetActionNotFound(t *testing.T) {
-	act := tokenAbi.GetAction(chain.N("not_found"))
+	act := tokenAbi.GetAction("not_found")
 	assert.True(t, act == nil)
 }
 
 func TestAbiDecodeActionEmptyStruct(t *testing.T) {
-	_, err := tokenAbi.DecodeAction(bytes.NewBuffer([]byte{}), chain.N("noop"))
+	_, err := tokenAbi.DecodeAction(bytes.NewBuffer([]byte{}), "noop")
 	assert.NoError(t, err)
 }
