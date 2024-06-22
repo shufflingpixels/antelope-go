@@ -11,7 +11,8 @@ var json = jsontime.ConfigWithCustomTimeFormat
 
 func init() {
 	// Antelope Api does not specify timezone in timestamps (they are always UTC tho).
-	jsontime.SetDefaultTimeFormat("2006-01-02T15:04:05", time.UTC)
+	jsontime.AddTimeFormatAlias("antelope-api", "2006-01-02T15:04:05")
+	jsontime.AddLocaleAlias("antelope-api", time.UTC)
 }
 
 func Json() jsoniter.API {

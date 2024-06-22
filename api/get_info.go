@@ -13,11 +13,11 @@ type Info struct {
 	ChainID                   string    `json:"chain_id"`
 	HeadBlockID               string    `json:"head_block_id"`
 	HeadBlockNum              int64     `json:"head_block_num"`
-	HeadBlockTime             time.Time `json:"head_block_time"`
+	HeadBlockTime             time.Time `json:"head_block_time" time_format:"antelope-api" time_location:"antelope-api"`
 	HeadBlockProducer         string    `json:"head_block_producer"`
 	LastIrreversableBlockNum  int64     `json:"last_irreversible_block_num"`
 	LastIrreversableBlockID   string    `json:"last_irreversible_block_id"`
-	LastIrreversableBlockTime time.Time `json:"last_irreversible_block_time,omitempty"`
+	LastIrreversableBlockTime time.Time `json:"last_irreversible_block_time,omitempty" time_format:"antelope-api" time_location:"antelope-api"`
 	VirtualBlockCPULimit      int64     `json:"virtual_block_cpu_limit"`
 	VirtualBlockNETLimit      int64     `json:"virtual_block_net_limit"`
 	BlockCPULimit             int64     `json:"block_cpu_limit"`
