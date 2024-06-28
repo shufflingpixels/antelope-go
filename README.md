@@ -1,8 +1,8 @@
 antelope-go
 ===========
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/pnx/antelope-go)](https://goreportcard.com/report/github.com/pnx/antelope-go)
-[![Test](https://github.com/pnx/antelope-go/actions/workflows/test.yml/badge.svg?branch=master&event=push)](https://github.com/pnx/antelope-go/actions/workflows/test.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/shufflingpixels/antelope-go)](https://goreportcard.com/report/github.com/shufflingpixels/antelope-go)
+[![Test](https://github.com/shufflingpixels/antelope-go/actions/workflows/test.yml/badge.svg?branch=master&event=push)](https://github.com/shufflingpixels/antelope-go/actions/workflows/test.yml)
 
 Library for interacting with antelope
 
@@ -13,7 +13,7 @@ Benchmarks
 go version: 1.21.8
 goos: linux
 goarch: amd64
-pkg: github.com/pnx/antelope-go/internal/benchmarks
+pkg: github.com/shufflingpixels/antelope-go/internal/benchmarks
 cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
 Benchmark_Decode_AbiDef-12              	 516951	     2340 ns/op	   1264 B/op	     42 allocs/op
 Benchmark_Decode_AbiDef_EosCanada-12    	 342844	     3235 ns/op	   1129 B/op	     30 allocs/op
@@ -31,7 +31,7 @@ Benchmark_Encode_EosCanada-12           	 116320	     9305 ns/op	   1744 B/op	  
 go version: 1.17.13
 goos: linux
 goarch: amd64
-pkg: github.com/pnx/antelope-go/internal/benchmarks
+pkg: github.com/shufflingpixels/antelope-go/internal/benchmarks
 cpu: AMD EPYC 7763 64-Core Processor
 Benchmark_Decode_AbiDef-4             	  470780	      2262 ns/op	    1760 B/op	      52 allocs/op
 Benchmark_Decode_AbiDef_EosCanada-4   	  342249	      3635 ns/op	    1840 B/op	      43 allocs/op
@@ -45,7 +45,7 @@ Benchmark_Encode_NoOptimize-4         	  320676	      3768 ns/op	    1056 B/op	 
 Benchmark_Encode_EosCanada-4          	  166828	      7241 ns/op	    1744 B/op	     135 allocs/op
 ```
 
-[All benchmark runs](https://github.com/pnx/antelope-go/actions/workflows/benchmark.yml)
+[All benchmark runs](https://github.com/shufflingpixels/antelope-go/actions/workflows/benchmark.yml)
 
 
 License
