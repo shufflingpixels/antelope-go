@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"errors"
 
-	"github.com/pnx/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/abi"
 )
 
 type PermissionLevel struct {

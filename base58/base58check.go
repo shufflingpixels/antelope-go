@@ -4,7 +4,7 @@ import (
 	"crypto/sha256"
 	"errors"
 
-	"github.com/pnx/antelope-go/ripemd160"
+	"github.com/shufflingpixels/antelope-go/ripemd160"
 )
 
 // ErrChecksum indicates that the checksum of a check-encoded string does not verify against the checksum.

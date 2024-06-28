@@ -9,7 +9,7 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/pnx/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/abi"
 )
 
 type Uint128 struct {

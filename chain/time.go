@@ -3,7 +3,7 @@ package chain
 import (
 	"time"
 
-	"github.com/pnx/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/abi"
 )
 
 type TimePoint int64

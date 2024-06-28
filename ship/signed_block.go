@@ -3,8 +3,8 @@ package ship
 import (
 	"bytes"
 
-	"github.com/pnx/antelope-go/abi"
-	"github.com/pnx/antelope-go/chain"
+	"github.com/shufflingpixels/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/chain"
 )
 
 // NOTE: SignedBlock is abit special. The data is encoded twice.

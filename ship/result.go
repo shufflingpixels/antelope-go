@@ -3,7 +3,7 @@ package ship
 import (
 	"fmt"
 
-	"github.com/pnx/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/abi"
 )
 
 // State History Plugin Results

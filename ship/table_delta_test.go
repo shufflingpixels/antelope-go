@@ -5,9 +5,9 @@ import (
 	"io"
 	"testing"
 
-	"github.com/pnx/antelope-go/abi"
-	"github.com/pnx/antelope-go/internal/assert"
-	"github.com/pnx/antelope-go/ship"
+	"github.com/shufflingpixels/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/internal/assert"
+	"github.com/shufflingpixels/antelope-go/ship"
 )
 
 func TestTableDeltaEncode(t *testing.T) {

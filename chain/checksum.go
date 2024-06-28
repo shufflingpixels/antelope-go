@@ -5,8 +5,8 @@ import (
 	"crypto/sha512"
 	"encoding/hex"
 
-	"github.com/pnx/antelope-go/abi"
-	"github.com/pnx/antelope-go/ripemd160"
+	"github.com/shufflingpixels/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/ripemd160"
 )
 
 // ripemd160 checksum type

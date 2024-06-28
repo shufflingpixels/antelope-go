@@ -3,8 +3,8 @@ package base58_test
 import (
 	"testing"
 
-	"github.com/pnx/antelope-go/base58"
-	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/shufflingpixels/antelope-go/base58"
+	"github.com/shufflingpixels/antelope-go/internal/assert"
 )
 
 func TestDecodeCheck(t *testing.T) {

@@ -8,8 +8,8 @@ import (
 
 	eoscanada "github.com/eoscanada/eos-go"
 
-	"github.com/pnx/antelope-go/chain"
-	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/shufflingpixels/antelope-go/chain"
+	"github.com/shufflingpixels/antelope-go/internal/assert"
 )
 
 // sanity checks that we are actually decoding the test data correctly

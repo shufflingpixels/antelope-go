@@ -3,7 +3,7 @@ package api_test
 import (
 	"testing"
 
-	"github.com/pnx/antelope-go/api"
+	"github.com/shufflingpixels/antelope-go/api"
 )
 
 func TestHTTPError_Error(t *testing.T) {

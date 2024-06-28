@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/pnx/antelope-go/chain"
-	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/shufflingpixels/antelope-go/chain"
+	"github.com/shufflingpixels/antelope-go/internal/assert"
 )
 
 func TestUint128(t *testing.T) {

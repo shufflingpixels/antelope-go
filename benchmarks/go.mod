@@ -1,12 +1,12 @@
-module github.com/pnx/antelope-go/internal/benchmarks
+module github.com/shufflingpixels/antelope-go/internal/benchmarks
 
 go 1.17
 
-replace github.com/pnx/antelope-go => ../
+replace github.com/shufflingpixels/antelope-go => ../
 
 require (
 	github.com/eoscanada/eos-go v0.10.2
-	github.com/pnx/antelope-go v0.2.0
+	github.com/shufflingpixels/antelope-go v0.2.0
 )
 
 require (

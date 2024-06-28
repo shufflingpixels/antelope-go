@@ -9,7 +9,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/pnx/antelope-go/base58"
+	"github.com/shufflingpixels/antelope-go/base58"
 )
 
 var stringTests = []struct {

@@ -1,6 +1,6 @@
 package chain
 
-import "github.com/pnx/antelope-go/abi"
+import "github.com/shufflingpixels/antelope-go/abi"
 
 // Type representing an EOSIO name.
 type Name uint64

@@ -5,7 +5,7 @@ import (
 	"io"
 	"reflect"
 
-	"github.com/pnx/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/abi"
 )
 
 // EOSIO ABI definition, describes the binary representation of a collection of types.

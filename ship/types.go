@@ -1,7 +1,7 @@
 package ship
 
 import (
-	"github.com/pnx/antelope-go/chain"
+	"github.com/shufflingpixels/antelope-go/chain"
 )
 
 // Miscellaneous structs that don't fit anywhere else.

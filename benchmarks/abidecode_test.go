@@ -6,8 +6,8 @@ import (
 
 	json "encoding/json"
 
-	"github.com/pnx/antelope-go/internal/assert"
-	"github.com/pnx/antelope-go/chain"
+	"github.com/shufflingpixels/antelope-go/internal/assert"
+	"github.com/shufflingpixels/antelope-go/chain"
 
 	eoscanada "github.com/eoscanada/eos-go"
 )

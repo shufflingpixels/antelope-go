@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/pnx/antelope-go/abi"
-	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/shufflingpixels/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/internal/assert"
 )
 
 func testDecoder(data []byte) *abi.Decoder {

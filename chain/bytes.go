@@ -3,7 +3,7 @@ package chain
 import (
 	"encoding/hex"
 
-	"github.com/pnx/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/abi"
 )
 
 // Binary data type, encodes to hex string in JSON.

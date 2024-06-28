@@ -3,7 +3,7 @@ package chain
 import (
 	"io"
 
-	"github.com/pnx/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/abi"
 )
 
 // this is dumb but speeds up encoding and decoding by about 5x

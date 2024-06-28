@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/pnx/antelope-go/abi"
-	"github.com/pnx/antelope-go/base58"
+	"github.com/shufflingpixels/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/base58"
 )
 
 type PublicKey struct {

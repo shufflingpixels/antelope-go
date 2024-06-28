@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pnx/antelope-go/internal/assert"
+	"github.com/shufflingpixels/antelope-go/internal/assert"
 	"github.com/stretchr/testify/require"
 )
 

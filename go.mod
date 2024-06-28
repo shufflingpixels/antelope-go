@@ -1,4 +1,4 @@
-module github.com/pnx/antelope-go
+module github.com/shufflingpixels/antelope-go
 
 go 1.17
 

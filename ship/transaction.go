@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/pnx/antelope-go/abi"
-	"github.com/pnx/antelope-go/chain"
+	"github.com/shufflingpixels/antelope-go/abi"
+	"github.com/shufflingpixels/antelope-go/chain"
 )
 
 type TransactionTraceV0 struct {
