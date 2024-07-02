@@ -232,6 +232,28 @@ func TestVariantPtr(t *testing.T) {
 	assert.True(t, (*v).A == nil)
 }
 
+// string
+
+func TestString(t *testing.T) {
+	var b string
+	err := testDecoder([]byte{
+		// string len varuint32: 20
+		0x14,
+		// string acsii bytes: "This text is encoded"
+		0x54, 0x68, 0x69, 0x73, 0x20, 0x74, 0x65, 0x78, 0x74, 0x20, 0x69, 0x73, 0x20, 0x65, 0x6E, 0x63, 0x6F, 0x64, 0x65, 0x64,
+	}).Decode(&b)
+	assert.NoError(t, err)
+	assert.Equal(t, b, "This text is encoded")
+}
+
+func TestStringOverflow(t *testing.T) {
+	var b string
+	err := testDecoder([]byte{
+		0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x7f,
+	}).Decode(&b)
+	assert.HasError(t, &err)
+}
+
 // bytes
 
 func TestBytes(t *testing.T) {
