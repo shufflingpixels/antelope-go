@@ -9,6 +9,10 @@ import (
 	"reflect"
 )
 
+// protobuf (that encoding/binary is implementing)
+// has a 2GiB limit on strings/byte arrays
+const maxBytes = 1 << 31 // 2GiB
+
 // Fast-path decoding function can be implemented to handle additional types without reflection.
 type DecodeFunc func(dec *Decoder, v interface{}) (done bool, err error)
 
@@ -17,8 +21,9 @@ func DefaultDecoderFunc(dec *Decoder, v interface{}) (done bool, err error) {
 }
 
 type Decoder struct {
-	r  io.Reader
-	fn DecodeFunc
+	r        io.Reader
+	fn       DecodeFunc
+	maxBytes int
 }
 
 type Unmarshaler interface {
@@ -27,7 +32,11 @@ type Unmarshaler interface {
 
 // Create a new EOSIO ABI decoder. Unless you know what you're doing, you should use the chain.NewDecoder() function instead.
 func NewDecoder(r io.Reader, fn DecodeFunc) *Decoder {
-	return &Decoder{r: r, fn: fn}
+	return &Decoder{r: r, fn: fn, maxBytes: maxBytes}
+}
+
+func (dec *Decoder) SetMaxBytes(value int) {
+	dec.maxBytes = value
 }
 
 // Decode into given value.
@@ -316,6 +325,9 @@ func (dec *Decoder) DecodeValue(v reflect.Value) error {
 func (dec *Decoder) ReadBytes(n int) (an int, b []byte, err error) {
 	if n < 0 {
 		return 0, nil, errors.New("abi: read with negative count")
+	}
+	if n > dec.maxBytes {
+		return 0, nil, fmt.Errorf("abi: trying to read byte array of size %d, but only sizes up to %d are supported", n, dec.maxBytes)
 	}
 	if n == 0 {
 		return 0, []byte{}, nil
