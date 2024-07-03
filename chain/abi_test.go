@@ -2,9 +2,13 @@ package chain_test
 
 import (
 	"bytes"
+	"encoding/hex"
 	"encoding/json"
+	"fmt"
+	"os"
 	"testing"
 
+	"github.com/shufflingpixels/antelope-go/abi"
 	"github.com/shufflingpixels/antelope-go/chain"
 	"github.com/shufflingpixels/antelope-go/internal/assert"
 )
@@ -308,5 +312,30 @@ func TestAbiGetActionNotFound(t *testing.T) {
 
 func TestAbiDecodeActionEmptyStruct(t *testing.T) {
 	_, err := tokenAbi.DecodeAction(bytes.NewBuffer([]byte{}), chain.N("noop"))
+	assert.NoError(t, err)
+}
+
+func TestAbiDecodeBinary(t *testing.T) {
+	fd, err := os.Open("../testdata/abi/setabi.tools.mc.bin")
+	assert.NoError(t, err)
+	defer fd.Close()
+
+	assert.NoError(t, err)
+
+	dec := abi.NewDecoder(hex.NewDecoder(fd), abi.DefaultDecoderFunc)
+	actual := struct {
+		Account chain.Name
+		Data    chain.Bytes
+	}{}
+	err = dec.Decode(&actual)
+	assert.NoError(t, err)
+
+	fmt.Println(actual.Data)
+
+	abi := chain.Abi{}
+
+	abi_dec := chain.NewDecoder(bytes.NewBuffer(actual.Data))
+
+	err = abi_dec.Decode(&abi)
 	assert.NoError(t, err)
 }
