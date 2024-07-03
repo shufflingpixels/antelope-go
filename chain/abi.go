@@ -346,17 +346,12 @@ func (a Abi) encodeInner(enc *abi.Encoder, t *resolvedType, v interface{}) error
 			if vv, ok = v.(Checksum512); ok {
 				err = vv.MarshalABI(enc)
 			}
-		case "eosio::name":
-			var vv Name
-			if vv, ok = v.(Name); ok {
-				err = vv.MarshalABI(enc)
-			}
 		case "extended_asset":
 			var vv ExtendedAsset
 			if vv, ok = v.(ExtendedAsset); ok {
 				err = vv.MarshalABI(enc)
 			}
-		case "name":
+		case "name", "eosio::name":
 			var vv Name
 			if vv, ok = v.(Name); ok {
 				err = vv.MarshalABI(enc)
