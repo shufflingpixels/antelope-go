@@ -24,7 +24,7 @@ func NewAction(account Name, name Name, authorization []PermissionLevel, data By
 }
 
 func (a Action) Decode(abi *Abi) (map[string]interface{}, error) {
-	decoded, err := abi.DecodeAction(bytes.NewReader(a.Data), a.Name.String())
+	decoded, err := abi.DecodeAction(bytes.NewReader(a.Data), a.Name)
 	if err != nil {
 		return nil, err
 	}

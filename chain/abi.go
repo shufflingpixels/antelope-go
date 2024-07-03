@@ -43,13 +43,13 @@ type AbiField struct {
 }
 
 type AbiAction struct {
-	Name              string `json:"name"`
+	Name              Name   `json:"name"`
 	Type              string `json:"type"`
 	RicardianContract string `json:"ricardian_contract"`
 }
 
 type AbiTable struct {
-	Name      string   `json:"name"`
+	Name      Name     `json:"name"`
 	IndexType string   `json:"index_type"`
 	KeyNames  []string `json:"key_names"`
 	KeyTypes  []string `json:"key_types"`
@@ -71,7 +71,7 @@ type AbiErrorMessage struct {
 	Message string `json:"error_msg"`
 }
 
-func (a Abi) GetTable(name string) *AbiTable {
+func (a Abi) GetTable(name Name) *AbiTable {
 	for _, t := range a.Tables {
 		if t.Name == name {
 			return &t
@@ -80,7 +80,7 @@ func (a Abi) GetTable(name string) *AbiTable {
 	return nil
 }
 
-func (a Abi) GetAction(name string) *AbiAction {
+func (a Abi) GetAction(name Name) *AbiAction {
 	for _, t := range a.Actions {
 		if t.Name == name {
 			return &t
@@ -116,7 +116,7 @@ func (a Abi) GetVariant(name string) *AbiVariant {
 	return nil
 }
 
-func (a Abi) DecodeAction(r io.Reader, name string) (interface{}, error) {
+func (a Abi) DecodeAction(r io.Reader, name Name) (interface{}, error) {
 	act := a.GetAction(name)
 	if act == nil {
 		return nil, fmt.Errorf("unknown action %v", name)
@@ -124,7 +124,7 @@ func (a Abi) DecodeAction(r io.Reader, name string) (interface{}, error) {
 	return a.Decode(r, act.Type)
 }
 
-func (a Abi) EncodeAction(w io.Writer, name string, v interface{}) error {
+func (a Abi) EncodeAction(w io.Writer, name Name, v interface{}) error {
 	act := a.GetAction(name)
 	if act == nil {
 		return fmt.Errorf("unknown action %v", name)
