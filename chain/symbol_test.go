@@ -13,7 +13,7 @@ func TestSymbol(t *testing.T) {
 	assert.Equal(t, symbol, chain.Symbol(91600282010116))
 	assert.Equal(t, symbol.Name(), "BEZOS")
 	assert.Equal(t, symbol.Decimals(), 4)
-	assert.Equal(t, symbol.Precision(), 10000)
+	assert.Equal(t, symbol.Precision(), int64(10000))
 	assert.Equal(t, symbol.Code(), chain.SymbolCode(357813601602))
 
 	_, err = chain.NewSymbolFromString("MO")

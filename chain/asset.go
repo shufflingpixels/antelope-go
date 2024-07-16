@@ -85,14 +85,14 @@ func (a *Asset) String() string {
 	if a.Value < 0 {
 		s = "-"
 	}
-	v := int(a.Value)
+	v := a.Value
 	if v < 0 {
 		v = -v
 	}
 	s += fmt.Sprint(v / a.Symbol.Precision())
 	if a.Symbol.Decimals() > 0 {
 		f := v % a.Symbol.Precision()
-		fs := strconv.Itoa(f)
+		fs := strconv.FormatInt(int64(f), 10)
 		for len(fs) < a.Symbol.Decimals() {
 			fs = "0" + fs
 		}

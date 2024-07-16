@@ -63,8 +63,8 @@ func (s Symbol) Decimals() int {
 }
 
 // Precision of asset symbol, 10^Decimals.
-func (s Symbol) Precision() int {
-	var p10 int = 1
+func (s Symbol) Precision() int64 {
+	var p10 int64 = 1
 	p := s.Decimals()
 	for p > 0 {
 		p10 *= 10
