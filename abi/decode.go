@@ -11,7 +11,7 @@ import (
 
 // protobuf (that encoding/binary is implementing)
 // has a 2GiB limit on strings/byte arrays
-const maxBytes = 1 << 31 // 2GiB
+const maxBytes int = (1 << 31) - 1 // 2GiB
 
 // Fast-path decoding function can be implemented to handle additional types without reflection.
 type DecodeFunc func(dec *Decoder, v interface{}) (done bool, err error)
