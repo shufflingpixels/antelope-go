@@ -9,9 +9,10 @@ jobs:
   test:
     strategy:
       matrix:
+        arch: [ 386, amd64 ]
         go-version: [1.18.x, 1.19.x, 1.20.x, 1.21.x]
     runs-on: ubuntu-latest
-    name: Go ${{ matrix.go-version }}
+    name: Go ${{matrix.arch}} ${{ matrix.go-version }}
     steps:
       - name: Install Go
         uses: actions/setup-go@v2
@@ -27,9 +28,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
       - name: Run tests
-        run: go test -coverprofile=/tmp/coverage ./...
+        run: GOARCH=${{matrix.arch}} go test -coverprofile=/tmp/coverage ./...
       - name: Run benchmarks
-        run: go test -benchmem -bench=. ./...
+        run: GOARCH=${{matrix.arch}} go test -benchmem -bench=. ./...
       - name: Upload coverage
         uses: actions/upload-artifact@v2
         with:
