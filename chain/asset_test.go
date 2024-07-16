@@ -61,7 +61,7 @@ func TestAsset(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, asset5.Value, int64(1123456789012345678))
 	assert.Equal(t, asset5.Decimals(), 18)
-	assert.Equal(t, asset5.Precision(), 1000000000000000000)
+	assert.Equal(t, asset5.Precision(), int64(1000000000000000000))
 	assert.Equal(t, asset5.String(), "1.123456789012345678 ABCDEFG")
 }
 
