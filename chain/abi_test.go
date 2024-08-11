@@ -213,6 +213,13 @@ var tokenAbi = loadAbi(`
             "key_names": [],
             "key_types": [],
             "type": "currency_stats"
+        },
+        {
+            "name": "noop",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": [],
+            "type": "noop"
         }
     ],
     "ricardian_clauses": [],
@@ -236,6 +243,14 @@ var transferData = []byte{
 	// extra2 array
 	0x01,                                           // 1 item
 	0x00, 0x00, 0x00, 0x00, 0x00, 0xea, 0x30, 0x55, // name eosio
+}
+
+var statRow = []byte{
+	0x00, 0x24, 0xca, 0x94, 0x27, 0x00, 0x00, 0x00,
+	0x04, 0x45, 0x4f, 0x53, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x20, 0x9b, 0xf3, 0x5e, 0x10, 0x00, 0x00,
+	0x04, 0x45, 0x4f, 0x53, 0x00, 0x00, 0x00, 0x00,
+	0x50, 0xc8, 0x10, 0x81, 0x2d, 0x95, 0xd0, 0x31,
 }
 
 func TestAbiDecode(t *testing.T) {
@@ -312,6 +327,42 @@ func TestAbiGetActionNotFound(t *testing.T) {
 
 func TestAbiDecodeActionEmptyStruct(t *testing.T) {
 	_, err := tokenAbi.DecodeAction(bytes.NewBuffer([]byte{}), chain.N("noop"))
+	assert.NoError(t, err)
+}
+
+func TestAbiEncodeTable(t *testing.T) {
+	buf := bytes.NewBuffer(nil)
+	err := tokenAbi.EncodeTable(buf, chain.N("stat"), map[string]interface{}{
+		"supply":     *chain.A("17000000.0000 EOS"),
+		"max_supply": *chain.A("1800000000.0000 EOS"),
+		"issuer":     chain.N("abcdefg12345"),
+	})
+	assert.NoError(t, err)
+	assert.Equal(t, buf.Bytes(), statRow)
+}
+
+func TestAbiDecodeTable(t *testing.T) {
+	rv, err := tokenAbi.DecodeTable(bytes.NewReader(statRow), chain.N("stat"))
+	assert.NoError(t, err)
+	assert.Equal(t, rv, map[string]interface{}{
+		"supply":     *chain.A("17000000.0000 EOS"),
+		"max_supply": *chain.A("1800000000.0000 EOS"),
+		"issuer":     chain.N("abcdefg12345"),
+	})
+}
+
+func TestAbiGetTableFound(t *testing.T) {
+	table := tokenAbi.GetTable(chain.N("accounts"))
+	assert.True(t, table != nil)
+}
+
+func TestAbiGetTableNotFound(t *testing.T) {
+	table := tokenAbi.GetTable(chain.N("not_found"))
+	assert.True(t, table == nil)
+}
+
+func TestAbiDecodeTableEmptyStruct(t *testing.T) {
+	_, err := tokenAbi.DecodeTable(bytes.NewBuffer([]byte{}), chain.N("noop"))
 	assert.NoError(t, err)
 }
 

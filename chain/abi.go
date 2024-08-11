@@ -132,6 +132,22 @@ func (a Abi) EncodeAction(w io.Writer, name Name, v interface{}) error {
 	return a.Encode(w, act.Type, v)
 }
 
+func (a Abi) DecodeTable(r io.Reader, name Name) (interface{}, error) {
+	t := a.GetTable(name)
+	if t == nil {
+		return nil, fmt.Errorf("unknown table %v", name)
+	}
+	return a.Decode(r, t.Type)
+}
+
+func (a Abi) EncodeTable(w io.Writer, name Name, v interface{}) error {
+	t := a.GetTable(name)
+	if t == nil {
+		return fmt.Errorf("unknown table %v", name)
+	}
+	return a.Encode(w, t.Type, v)
+}
+
 func (a Abi) Decode(r io.Reader, name string) (interface{}, error) {
 	res := resolver{&a, make(map[string]*resolvedType)}
 	t := res.resolve(name)
